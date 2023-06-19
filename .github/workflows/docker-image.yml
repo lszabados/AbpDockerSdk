@@ -20,7 +20,7 @@ jobs:
       with:
         github-push-secret: ${{ github.token }}
         docker-image-name: abp-sdk7
-        docker-image-tag: :1
+        docker-image-tag: 1
         dockerfile-path: ./Dockerfile
         build-context: ./
         build-only: false   
