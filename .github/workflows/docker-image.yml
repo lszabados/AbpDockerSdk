@@ -14,5 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag abpsdk7:1
+    #Build abp dotnet sdk 7.0 Backend
+    - uses: pmorelli92/github-container-registry-build-push@2.0.0
+      name: Build and Publish latest .net 7 sdk with abp cli
+      with:
+        github-push-secret: ${{ github.token }}
+        docker-image-name: abp-sdk7
+        docker-image-tag: :1
+        dockerfile-path: ./Dockerfile
+        build-context: ./
+        build-only: false   
+
